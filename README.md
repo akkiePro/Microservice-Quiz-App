@@ -2,7 +2,7 @@
 Quiz App using different microservices such as question-service, quiz-service, service-registry and an api-gateway-service. <br>
 
 # Postman cURL collection
-1. generateQuiz <br>
+1. <b>generateQuiz</b> <br>
 curl --location 'localhost:8765/quiz-service/quiz/generate' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -12,11 +12,11 @@ curl --location 'localhost:8765/quiz-service/quiz/generate' \
 }'
 
 <br><br>
-2. generateQuizQuestions <br>
+2. <b>generateQuizQuestions</b> <br>
 curl --location 'localhost:8765/quiz-service/quiz/getQuiz/1'
 <br><br>
 
-3. getResult <br>
+3. <b>getResult</b> <br>
 curl --location --request GET 'localhost:8765/quiz-service/quiz/getScore' \
 --header 'Content-Type: application/json' \
 --data '[
@@ -43,15 +43,15 @@ curl --location --request GET 'localhost:8765/quiz-service/quiz/getScore' \
 ]'
 
 <br><br>
-4. getAllQuestions <br>
+4. <b>getAllQuestions</b> <br>
 curl --location 'localhost:8765/question-service/question/getAllQuestions'
 
 <br><br>
-5. getAllQuestionsByCategory <br>
+5. <b>getAllQuestionsByCategory</b> <br>
 curl --location 'localhost:8765/question-service/question/category/Java'
 
 <br><br>
-6. addQuestion <br>
+6. <b>addQuestion</b <br>
 curl --location 'localhost:8765/question-service/question/addQuestion' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -66,7 +66,7 @@ curl --location 'localhost:8765/question-service/question/addQuestion' \
 }'
 
 <br><br>
-7. updateQuestion <br>
+7. <b>updateQuestion</b <br>
 curl --location --request PUT 'localhost:8765/question-service/question/update/1' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -81,25 +81,25 @@ curl --location --request PUT 'localhost:8765/question-service/question/update/1
     }'
 
 <br><br>
-8. deleteQuestion <br>
+8. <b>deleteQuestion</b> <br>
 curl --location --request DELETE 'localhost:8765/question-service/question/delete/22' \
 --data ''
 
 <br><br>
-9. generateQuestionsForQuiz <br>
+9. <b>generateQuestionsForQuiz</b> <br>
 curl --location --request GET 'localhost:8765/question-service/question/generate?category=Python&limit=10' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'category=Java' \
 --data-urlencode 'limit=5'
 
 <br><br>
-10. generateQuestionsByIds <br>
+10. <b>generateQuestionsByIds</b> <br>
 curl --location 'localhost:8765/question-service/question/getQuestions' \
 --header 'Content-Type: application/json' \
 --data '[10,16,3,18,19,21,6,12,8,14]'
 
 <br><br>
-11. score <br>
+11. <b>score</b> <br>
 curl --location 'localhost:8765/question-service/question/getScore' \
 --header 'Content-Type: application/json' \
 --data '[
