@@ -125,6 +125,8 @@ curl --location 'localhost:8765/question-service/question/getScore' \
     }
 ]'
 
+# Eureka-Server setup
+![image](https://github.com/akkiePro/Microservice-Quiz-App/assets/72514060/21807a0a-5185-4dc7-98a1-3e9047e6efab)
 
 # Monolithic-Quiz-App
 <a href="https://github.com/akkiePro/Monolithic-Quiz-App">Monolithic-Quiz-App</a> <br>
