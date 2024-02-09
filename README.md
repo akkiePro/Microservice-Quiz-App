@@ -66,7 +66,7 @@ curl --location 'localhost:8765/question-service/question/addQuestion' \
 }'
 
 <br><br>
-7. <b>updateQuestion</b <br>
+7. <b>updateQuestion</b> <br>
 curl --location --request PUT 'localhost:8765/question-service/question/update/1' \
 --header 'Content-Type: application/json' \
 --data '{
