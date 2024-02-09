@@ -51,7 +51,7 @@ curl --location 'localhost:8765/question-service/question/getAllQuestions'
 curl --location 'localhost:8765/question-service/question/category/Java'
 
 <br><br>
-6. <b>addQuestion</b <br>
+6. <b>addQuestion</b> <br>
 curl --location 'localhost:8765/question-service/question/addQuestion' \
 --header 'Content-Type: application/json' \
 --data '{
