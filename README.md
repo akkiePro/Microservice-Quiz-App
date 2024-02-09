@@ -1,7 +1,7 @@
 # Microservice-Quiz-App
 Quiz App using different microservices such as question-service, quiz-service, service-registry and an api-gateway-service. <br>
 
-# Postman cURL collection
+# Postman cURLs
 1. <b>generateQuiz</b> <br>
 curl --location 'localhost:8765/quiz-service/quiz/generate' \
 --header 'Content-Type: application/json' \
