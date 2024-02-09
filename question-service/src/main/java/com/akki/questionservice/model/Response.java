@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Response {
 
-    private int rId;
+    private Integer rId;
     private String response;
 
 }

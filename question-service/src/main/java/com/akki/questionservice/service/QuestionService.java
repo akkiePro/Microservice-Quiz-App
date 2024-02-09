@@ -4,6 +4,8 @@ package com.akki.questionservice.service;
 import com.akki.questionservice.dao.QuestionRepository;
 import com.akki.questionservice.exception.NotFoundException;
 import com.akki.questionservice.model.Question;
+import com.akki.questionservice.model.QuestionWrapper;
+import com.akki.questionservice.model.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class QuestionService {
@@ -84,4 +87,32 @@ public class QuestionService {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
+
+    public ResponseEntity<List<QuestionWrapper>> getQuestionsByIds(List<Integer> questionIds) {
+        List<QuestionWrapper> questionWrappers = new ArrayList<>();
+        try {
+            List<Question> questions = repo.findAllById(questionIds);
+            questionWrappers = questions.stream().map(q -> new QuestionWrapper(q.getQId(), q.getQuestionTitle(), q.getOption1(), q.getOption2(), q.getOption3(), q.getOption4())).collect(Collectors.toList());
+            return new ResponseEntity<>(questionWrappers, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(questionWrappers, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    public ResponseEntity<String> getScore(List<Response> responses) {
+        int score = 0;
+        try {
+            for (Response r : responses) {
+                Question question = repo.findById(r.getRId()).orElseThrow(() -> new NotFoundException("Question not found.\nrId= " + r.getRId() + " not found."));
+                if (r.getResponse().equals(question.getCorrectAnswer()))
+                    score++;
+            }
+            return new ResponseEntity<>(String.valueOf(score), HttpStatus.OK);
+        } catch (NotFoundException nfe) {
+            return new ResponseEntity<>(nfe.getMessage(), HttpStatus.NOT_ACCEPTABLE);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }

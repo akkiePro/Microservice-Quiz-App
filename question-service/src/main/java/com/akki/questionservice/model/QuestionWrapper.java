@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public class QuestionWrapper {
 
-    private final Integer qId;
+    private final Integer qid;
     private final String questionTitle;
     private final String option1;
     private final String option2;
